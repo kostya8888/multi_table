@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  <script src="vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <input v-on:input="vall = $event.target.value" type="text" />
+    <button v-on:click="addItem">кнопка</button>
+  <ul id="zz">      
+      <li>{{vall}} * 1 = {{vall * 1}}</li>
+      <li>{{vall}} * 2 = {{vall * 2}}</li>
+      <li>{{vall}} * 3 = {{vall * 3}}</li>
+      <li>{{vall}} * 4 = {{vall * 4}}</li>
+      <li>{{vall}} * 5 = {{vall * 5}}</li>
+      <li>{{vall}} * 6 = {{vall * 6}}</li>
+      <li>{{vall}} * 7 = {{vall * 7}}</li>
+      <li>{{vall}} * 8 = {{vall * 8}}</li>
+      <li>{{vall}} * 9 = {{vall * 9}}</li>
+      <li>{{vall}} * 10 = {{vall * 10}}</li>
+  </ul>
+  </div>
+
+  <script>
+   Vue.component('todo-item', {    
+      props: ['todo'],
+      template: '<li>123</li>'
+    })
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        vall: '0'
+      },
+      methods: {
+        addItem (){
+          //this.vall = this.vall.split('').reverse().join('')
+          document.getElementById("zz").appendChild(document.createElement("todo-item"));
+
+        }
+      }
+    })
+  </script>
+</body>
+</html>
